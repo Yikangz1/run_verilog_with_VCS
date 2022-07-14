@@ -1,0 +1,15 @@
+# Note: this is the compiler script with bsub.
+
+#vcs -full64 -sverilog -debug_acc+all -debug_cell+encrypt -f filelist.f -l Elaboration.log -o MyExample
+#bsub -Is -q normal -n 1 -R "span[hosts=1]rusage[mem=100]" csh -c  "vcs -full64 -sverilog -debug_acc+all -debug_cell+encrypt -f filelist_new.f -l Elaboration.log -o MyExample"
+
+vcs -full64 \
+    -sverilog \
+    -debug_acc+all \
+    -debug_cell+encrypt \
+    -f filelist_new.f \
+    -l Elaboration.log \
+    #+test_case=001 \
+    -o MyExample 
+
+#bsub -Is -q normal -n 1 -R csh -c "span[hosts=1]" "verdi"
