@@ -1,0 +1,8 @@
+# This id the simmulation script with bsub.
+
+#bsub -Is -q normal -n 1 -R "span[hosts=1]rusage[mem=100]" csh -c  "./MyExample +vcs+lic+wait -l Simulation.log" &
+
+./MyExample +vcs+lic+wait \
+            -l Simulation.log \
+            +sub_case=CW1 +test_case=
+            # +sub_case=CW1 +test_case=SCH_CASE001
